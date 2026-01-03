@@ -32,5 +32,12 @@ export function useSpeech(onResult: (text: string) => void) {
     recognition.start();
   }
 
-  return { start, listening };
+  function stop() {
+    if (recognitionRef.current) {
+      recognitionRef.current.stop();
+      setListening(false);
+    }
+  }
+
+  return { start, stop, listening };
 }
