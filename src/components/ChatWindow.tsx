@@ -72,7 +72,7 @@ export default function ChatWindow() {
     }
 
     try {
-      const replyText = await sendMessage(text, "web_user");
+      const replyText = await sendMessage(text, "local_tester");
       
       const agentMsg: Message = { role: "agent", content: replyText, timestamp: new Date() };
       setMessages((m) => [...m, agentMsg]);

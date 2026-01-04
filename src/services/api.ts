@@ -11,9 +11,12 @@ export async function sendMessage(
   });
 
   if (!res.ok) {
+    console.log("Error:", res.statusText);
     throw new Error("Server error");
   }
 
   const data = await res.json();
+  console.log("Response Code:", res.status);
+  console.log("Agent Reply:", data.reply);
   return data.reply;
 }
